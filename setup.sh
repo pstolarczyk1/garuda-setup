@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # constants
-readonly remove=("firedragon")
-readonly base_install=("bottles" "visual-studio-code-bin" "firefox" "eagle" "termius" "balena-etcher" "rpi-imager" "obsidian" "obs-studio" "telegram-desktop" "discord" "kicad" "libreoffice-fresh" "vlc" "github-cli" "github-desktop" "openvpn")
+readonly remove=("garuda-setup-assistant" "garuda-welcome" "firedragon")
+readonly base_install=("garuda-backgrounds" "garuda-walpapers" "bottles" "visual-studio-code-bin" "firefox" "eagle" "termius" "balena-etcher" "rpi-imager" "obsidian" "obs-studio" "telegram-desktop" "discord" "kicad" "libreoffice-fresh" "vlc" "github-cli" "github-desktop" "openvpn")
 readonly opt_install=("steam" "minecraft-launcher" "lutris")
 
 initial_check (){
