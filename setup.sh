@@ -1,26 +1,8 @@
 #!/bin/sh
 
 # constants
-readonly remove=("garuda-setup-assistant" "garuda-welcome" "firedragon")
-readonly base_install=("garuda-backgrounds" "garuda-walpapers" "bottles" "visual-studio-code-bin" "firefox" "eagle" "termius" "balena-etcher" "rpi-imager" "obsidian" "obs-studio" "telegram-desktop" "discord" "kicad" "libreoffice-fresh" "vlc" "github-cli" "github-desktop" "openvpn")
-readonly opt_install=("steam" "minecraft-launcher" "lutris")
-
-initial_check (){
-	[ "$UID" -eq 0 ] || exec sudo bash "$0" "$@"
-	echo -e "\033[0;32mInfo:\033[0;37m check done "
-}
-
-req_packages (){
-	
-	echo -e "\n\033[0;31mInfo:\033[0;37m Removing Garuda bloatware... " #red
-
-	for rm in "${remove[@]}"; do
-	    pamac remove "$rm" --no-confirm
-	done
-
-	echo -e "\n\033[0;32mInfo:\033[0;37m Installing updates... " 
-	pamac update --no-confirm
-
+readonly remove=("garuda-setup-assistant" "garuda-welcome" "firedragon" "")
+readonly base_install=("performance-tweaks" "garuda-backgrounds" "garuda-walpapers" "bottles" "visual-studio-code-bin" "firefox" "eagle" "termius" "balena-etcher" "rpi-imager" "obsidian" "obs-studio" "telegram-desktop" "git"performance-tweaks
 	echo -e "\n\033[0;32mInfo:\033[0;37m Installing essential packages... " 
     for ins in "${base_install[@]}"; do
 	    pamac install "$ins" --no-confirm --no-upgrade
@@ -41,11 +23,14 @@ req_tweaks(){
 	gpasswd -a pawel uucp
 	chown -R openvpn:openvpn /var/lib/openvpn3
 	systemctl disable NetworkManager-wait-online.service
-	gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
+	gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll "true"
+	gsettings set org.gnome.desktop.peripherals.touchpad click-method default
+	gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 	
 }
 
 opt_tweaks(){
+	gsettings set org.gnome.desktop.background show-desktop-icons true
 
 }
 
