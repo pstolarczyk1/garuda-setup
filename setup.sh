@@ -4,7 +4,7 @@ readonly username=$SUDO_USER
 
 # constants
 readonly remove=("garuda-setup-assistant" "garuda-welcome" "firedragon" "")
-readonly base_install=("performance-tweaks" "garuda-backgrounds" "garuda-walpapers" "bottles" "visual-studio-code-bin" "firefox" "eagle" "termius" "balena-etcher" "rpi-imager" "obsidian" "obs-studio" "telegram-desktop" "git")
+readonly base_install=("performance-tweaks" "garuda-backgrounds" "garuda-walpapers" "bottles" "visual-studio-code-bin" "firefox" "eagle" "termius" "balena-etcher" "rpi-imager" "obsidian" "obs-studio" "telegram-desktop" "git" "kicad" "github-desktop")
 readonly opt_install=("steam" "minecraft-launcher" "lutris")
 
 initial_check(){
@@ -37,7 +37,7 @@ opt_packages(){
 	for opt in "${base_install[@]}"; do
 		pamac install "$opt" --no-confirm --no-upgrade
 	done
-	wget -O - https://bit.ly/cl4lx | bash
+	# wget -O - https://bit.ly/cl4lx | bash
 }
 
 req_tweaks(){
@@ -48,8 +48,8 @@ req_tweaks(){
 }
 
 gnome_tweaks(){
-	# su pawel --session-command "bash s.sh"
-	sudo -Eu pawel "bash gnome_tweaks.sh"
+	su pawel --session-command "bash s.sh"
+	# sudo -Eu pawel "bash gnome_tweaks.sh"
 }
 
 
