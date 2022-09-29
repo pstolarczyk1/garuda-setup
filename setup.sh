@@ -3,8 +3,8 @@
 readonly username=$SUDO_USER
 
 # constants
-readonly remove=("garuda-setup-assistant" "garuda-welcome" "firedragon" "")
-readonly base_install=("performance-tweaks" "garuda-backgrounds" "garuda-walpapers" "bottles" "visual-studio-code-bin" "firefox" "eagle" "termius" "balena-etcher" "rpi-imager" "obsidian" "obs-studio" "telegram-desktop" "git" "kicad" "github-desktop")
+readonly remove=("garuda-setup-assistant" "garuda-welcome" "firedragon" "vim" "garuda-welcome" "geary" "sushi" "evince" "celluloid")
+readonly base_install=("performance-tweaks" "garuda-backgrounds" "garuda-walpapers" "bottles" "discord" "visual-studio-code-bin" "vlc" "firefox" "eagle" "termius" "balena-etcher" "rpi-imager" "obsidian" "obs-studio" "virt-manager" "telegram-desktop" "git" "kicad" "paperwork" "github-desktop")
 readonly opt_install=("steam" "minecraft-launcher" "lutris")
 
 initial_check(){
@@ -47,9 +47,9 @@ req_tweaks(){
 	
 }
 
-gnome_tweaks(){
-	su pawel --session-command "bash s.sh"
-	# sudo -Eu pawel "bash gnome_tweaks.sh"
+opt_tweaks(){
+	# su pawel --session-command "bash gnome_tweaks.sh"
+	sudo -Eu pawel "bash gnome_tweaks.sh"
 }
 
 
@@ -62,5 +62,5 @@ req_tweaks
 if [ -z $1 ]
 then         
 	opt_packages
-	gnome_tweaks
+	# opt_tweaks
 fi
