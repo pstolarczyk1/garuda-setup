@@ -4,7 +4,7 @@ readonly username=$SUDO_USER
 
 # constants
 readonly remove=("garuda-setup-assistant" "garuda-welcome" "firedragon" "vim" "garuda-welcome" "geary" "sushi" "evince" "celluloid")
-readonly base_install=("performance-tweaks" "garuda-backgrounds" "garuda-walpapers" "bottles" "discord" "visual-studio-code-bin" "dconf-editor" "vlc" "firefox" "eagle" "termius" "balena-etcher" "rpi-imager" "obsidian" "obs-studio" "virt-manager" "telegram-desktop" "git" "kicad" "paperwork" "github-desktop")
+readonly base_install=("performance-tweaks" "garuda-backgrounds" "garuda-walpapers" "bottles-git" "discord" "visual-studio-code-bin" "dconf-editor" "vlc" "firefox" "eagle" "termius" "etcher-bin" "rpi-imager" "obsidian" "obs-studio" "virt-manager" "telegram-desktop" "kicad" "paperwork" "github-desktop")
 readonly opt_install=("steam" "minecraft-launcher" "lutris")
 
 initial_check(){
