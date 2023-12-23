@@ -21,7 +21,7 @@ req_packages(){
 	done
 
 	echo -e "\n\033[0;32mInfo:\033[0;37m Installing updates... " 
-	pamac update --no-confirm
+	pacman -Syuq --noconfirm
 
 	
 	echo -e "\n\033[0;32mInfo:\033[0;37m Installing essential packages... " 
@@ -44,23 +44,16 @@ req_tweaks(){
 	gpasswd -a pawel uucp
 	chown -R openvpn:openvpn /var/lib/openvpn3
 	systemctl disable NetworkManager-wait-online.service
-	
 }
-
-opt_tweaks(){
-	# su pawel --session-command "bash gnome_tweaks.sh"
-	sudo -Eu pawel "bash gnome_tweaks.sh"
-}
-
 
 #MAIN
-
+bash gnome_tweaks.sh
 initial_check
 req_packages
 req_tweaks
+
 # if parameter empty
 if [ -z $1 ]
 then         
 	opt_packages
-	# opt_tweaks
 fi
